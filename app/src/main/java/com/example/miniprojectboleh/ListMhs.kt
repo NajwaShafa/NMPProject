@@ -14,5 +14,7 @@ class ListMhs : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.rvMhs.layoutManager = LinearLayoutManager(this)
+        binding.rvMhs.setHasFixedSize(true)
+        binding.rvMhs.adapter = MhsAdapter()
     }
 }
