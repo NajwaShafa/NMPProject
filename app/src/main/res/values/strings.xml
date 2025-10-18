@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">MiniProjectBoleh</string>
+    <string name="rbDSAI">DSAI</string>
+    <string name="rbNCS">NCS</string>
+    <string name="rbIMES">IMES</string>
+    <string name="rbDMT">DMT</string>
+    <string name="rbGD">GD</string>
 </resources>

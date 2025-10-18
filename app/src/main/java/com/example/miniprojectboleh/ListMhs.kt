@@ -8,6 +8,11 @@ import com.example.miniprojectboleh.databinding.ActivityListMhsBinding
 class ListMhs : AppCompatActivity() {
 
     private lateinit var binding: ActivityListMhsBinding
+
+    companion object{
+        const val MHS_INDEX = "mhs_index"
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityListMhsBinding.inflate(layoutInflater)
