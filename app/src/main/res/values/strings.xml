@@ -1,5 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string name="app_name">MiniProjectBoleh</string>
+
+    <string-array name="spinner_info">
+        <item>-- Pilih info --</item>
+        <item>About Me</item>
+        <item>My Course</item>
+        <item>My Experiences</item>
+    </string-array>
+
+
+
     <string name="rbDSAI">DSAI</string>
     <string name="rbNCS">NCS</string>
     <string name="rbIMES">IMES</string>

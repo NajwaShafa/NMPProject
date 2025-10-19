@@ -2,14 +2,15 @@ package com.example.miniprojectboleh
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.GridLayoutManager
+import com.example.miniprojectboleh.adapter.MhsAdapter
 import com.example.miniprojectboleh.databinding.ActivityListMhsBinding
 
 class ListMhs : AppCompatActivity() {
 
     private lateinit var binding: ActivityListMhsBinding
 
-    companion object{
+    companion object {
         const val MHS_INDEX = "mhs_index"
     }
 
@@ -18,8 +19,11 @@ class ListMhs : AppCompatActivity() {
         binding = ActivityListMhsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.rvMhs.layoutManager = LinearLayoutManager(this)
+
+        binding.rvMhs.layoutManager = GridLayoutManager(this, 2)
         binding.rvMhs.setHasFixedSize(true)
-        binding.rvMhs.adapter = MhsAdapter()
+
+
+        binding.rvMhs.adapter = MhsAdapter(DataMhs.profile)
     }
 }

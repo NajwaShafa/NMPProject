@@ -1,111 +1,154 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".DetailMhs">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
+        <!-- Foto -->
         <ImageView
             android:id="@+id/imgDetail"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_margin="10dp"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_gravity="center_horizontal"
             android:scaleType="centerCrop"
-            app:srcCompat="@drawable/girl1" />
+            android:contentDescription="Foto mahasiswa"
+            android:padding="4dp"
+            tools:src="@drawable/girl1" />
 
+        <!-- Nama -->
         <TextView
             android:id="@+id/txtNamaDetail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:text="TextView"
-            android:textSize="22sp"
-            android:textStyle="bold" />
+            android:layout_gravity="center_horizontal"
+            android:text="Nama Mahasiswa"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_marginTop="8dp"
+            tools:text="Anna" />
 
+        <!-- NRP -->
         <TextView
             android:id="@+id/txtNrpDetail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="4dp"
-            android:text="TextView"
-            android:textSize="18sp" />
+            android:layout_gravity="center_horizontal"
+            android:text="NRP"
+            android:textSize="14sp"
+            android:layout_marginTop="4dp"
+            tools:text="160423088" />
 
+        <!-- Prodi -->
         <TextView
             android:id="@+id/txtProdiDetail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
-            android:textSize="18sp" />
+            android:layout_gravity="center_horizontal"
+            android:text="Program"
+            android:textSize="16sp"
+            android:layout_marginTop="4dp"
+            tools:text="DSAI" />
 
+        <!-- Spinner  -->
         <Spinner
             android:id="@+id/spinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp" />
+            android:minHeight="48dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:layout_marginTop="12dp"
+            android:spinnerMode="dropdown"
+            android:entries="@array/spinner_info" />
 
+        <!-- Paragraf dinamis -->
         <TextView
             android:id="@+id/textSpinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text=""
+            android:textSize="14sp"
+            android:layout_marginTop="12dp"
+            android:lineSpacingExtra="2dp" />
 
+        <!-- Label Program -->
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/tvProgramLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Program:"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp" />
+
+        <!-- RadioGroup -->
+        <RadioGroup
+            android:id="@+id/rgProgram"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:orientation="vertical"
+            android:layout_marginTop="8dp">
 
-        <RadioButton
-            android:id="@+id/rbDSAI"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="50dp"
-            android:padding="8dp"
-            android:text="@string/rbDSAI" />
+            <RadioButton
+                android:id="@+id/rbDSAI"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:padding="12dp"
+                android:text="DSAI" />
 
-        <RadioButton
-            android:id="@+id/rbNCS"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="50dp"
-            android:padding="8dp"
-            android:text="@string/rbNCS" />
+            <RadioButton
+                android:id="@+id/rbNCS"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:padding="12dp"
+                android:text="NCS" />
 
-        <RadioButton
-            android:id="@+id/rbIMES"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="50dp"
-            android:padding="8dp"
-            android:text="@string/rbIMES" />
+            <RadioButton
+                android:id="@+id/rbIMES"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:padding="12dp"
+                android:text="IMES" />
 
-        <RadioButton
-            android:id="@+id/rbDMT"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="50dp"
-            android:padding="8dp"
-            android:text="@string/rbDMT" />
+            <RadioButton
+                android:id="@+id/rbDMT"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:padding="12dp"
+                android:text="DMT" />
 
-        <RadioButton
-            android:id="@+id/rbGD"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="50dp"
-            android:padding="8dp"
-            android:text="@string/rbGD" />
+            <RadioButton
+                android:id="@+id/rbGD"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:padding="12dp"
+                android:text="GD" />
+        </RadioGroup>
 
+        <!-- Request Friend button -->
         <Button
-            android:id="@+id/button5"
+            android:id="@+id/btnRequestFriend"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button" />
+            android:minHeight="48dp"
+            android:padding="12dp"
+            android:layout_marginTop="20dp"
+            android:text="Request Friend"
+            android:textAllCaps="false"
+            android:backgroundTint="#4CAF50"
+            android:textColor="@android:color/white" />
 
     </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

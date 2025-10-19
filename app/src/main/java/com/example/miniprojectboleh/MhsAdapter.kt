@@ -1,13 +1,34 @@
-package com.example.miniprojectboleh
+package com.example.miniprojectboleh.adapter
 
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.miniprojectboleh.DetailMhs
+import com.example.miniprojectboleh.ListMhs
+import com.example.miniprojectboleh.Mahasiswa
 import com.example.miniprojectboleh.databinding.ProfileMhsBinding
 
-class MhsAdapter() : RecyclerView.Adapter<MhsAdapter.MhsViewHolder>() {
-    class MhsViewHolder(val binding: ProfileMhsBinding) : RecyclerView.ViewHolder(binding.root)
+class MhsAdapter(private val data: Array<Mahasiswa>) :
+    RecyclerView.Adapter<MhsAdapter.MhsViewHolder>() {
+
+    inner class MhsViewHolder(val binding: ProfileMhsBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+
+        fun bind(mhs: Mahasiswa, position: Int) {
+            binding.txtName.text = mhs.nama
+            binding.txtNrp.text = mhs.nrp
+            binding.txtProdi.text = mhs.prodi
+            binding.imgMhs.setImageResource(mhs.imgId)
+
+            binding.root.setOnClickListener {
+                val ctx = binding.root.context
+                val intent = Intent(ctx, DetailMhs::class.java)
+                intent.putExtra(ListMhs.MHS_INDEX, position)
+                ctx.startActivity(intent)
+            }
+        }
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MhsViewHolder {
         val binding = ProfileMhsBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -15,20 +36,9 @@ class MhsAdapter() : RecyclerView.Adapter<MhsAdapter.MhsViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: MhsViewHolder, position: Int) {
-        holder.binding.txtName.text = DataMhs.profile[position].nama
-        holder.binding.txtNrp.text = DataMhs.profile[position].nrp
-        holder.binding.txtProdi.text = DataMhs.profile[position].prodi
-        holder.binding.imgMhs.setImageResource(DataMhs.profile[position].imgId)
-
-        //multi activity
-        holder.binding.root.setOnClickListener{
-            val intent = Intent(holder.itemView.context, DetailMhs::class.java)
-            intent.putExtra(ListMhs.MHS_INDEX,position)
-            holder.itemView.context.startActivity(intent)
-        }
+        val mhs = data[position]
+        holder.bind(mhs, position)
     }
 
-    override fun getItemCount(): Int {
-        return DataMhs.profile.size
-    }
+    override fun getItemCount(): Int = data.size
 }
