@@ -2,7 +2,7 @@ package com.example.miniprojectboleh
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.miniprojectboleh.adapter.MhsAdapter
 import com.example.miniprojectboleh.databinding.ActivityListMhsBinding
 
@@ -19,10 +19,8 @@ class ListMhs : AppCompatActivity() {
         binding = ActivityListMhsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
-        binding.rvMhs.layoutManager = GridLayoutManager(this, 2)
+        binding.rvMhs.layoutManager = LinearLayoutManager(this)
         binding.rvMhs.setHasFixedSize(true)
-
 
         binding.rvMhs.adapter = MhsAdapter(DataMhs.profile)
     }

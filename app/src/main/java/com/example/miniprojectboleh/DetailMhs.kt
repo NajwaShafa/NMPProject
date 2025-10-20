@@ -4,12 +4,17 @@ import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.miniprojectboleh.databinding.DetailMhsBinding
 
 class DetailMhs : AppCompatActivity() {
     private lateinit var binding: DetailMhsBinding
+
+    companion object {
+        var totalFriend = 0
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,6 +31,11 @@ class DetailMhs : AppCompatActivity() {
 
         // Ambil data sesuai index
         val mhs = DataMhs.profile[index]
+
+        val btnBack = findViewById<ImageButton>(R.id.btnBack)
+        btnBack.setOnClickListener {
+            finish()
+        }
 
         // Tampilkan data ke layout
         binding.txtNamaDetail.text = mhs.nama
@@ -72,7 +82,10 @@ class DetailMhs : AppCompatActivity() {
 
         // Tombol Request Friend
         binding.btnRequestFriend.setOnClickListener {
-            Toast.makeText(this, "Request sent to ${mhs.nama}!", Toast.LENGTH_SHORT).show()
+            totalFriend += 1
+
+            val message = "Sukses tambah ${mhs.nama} sebagai friend.\nFriend anda sekarang adalah $totalFriend."
+            Toast.makeText(this, message, Toast.LENGTH_LONG).show()
         }
     }
 }
