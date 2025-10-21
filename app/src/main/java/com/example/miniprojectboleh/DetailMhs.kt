@@ -7,14 +7,11 @@ import android.widget.ArrayAdapter
 import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AlertDialog
 import com.example.miniprojectboleh.databinding.DetailMhsBinding
 
 class DetailMhs : AppCompatActivity() {
     private lateinit var binding: DetailMhsBinding
-
-    companion object {
-        var totalFriend = 0
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -82,10 +79,12 @@ class DetailMhs : AppCompatActivity() {
 
         // Tombol Request Friend
         binding.btnRequestFriend.setOnClickListener {
-            totalFriend += 1
-
-            val message = "Sukses tambah ${mhs.nama} sebagai friend.\nFriend anda sekarang adalah $totalFriend."
-            Toast.makeText(this, message, Toast.LENGTH_LONG).show()
+            FriendCounter.totalFriend += 1
+            val builder = AlertDialog.Builder(this)
+            builder.setTitle("Friend Request")
+            builder.setMessage("Sukses tambah ${mhs.nama} sebagai friend.\nFriend anda sekarang adalah ${FriendCounter.totalFriend}.")
+            builder.setPositiveButton("OK", null)
+            builder.create().show()
         }
     }
 }

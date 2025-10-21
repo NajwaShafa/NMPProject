@@ -20,7 +20,7 @@
             android:layout_width="90dp"
             android:layout_height="90dp"
             android:layout_marginEnd="12dp"
-            android:contentDescription="Foto mahasiswa"
+            android:contentDescription="@string/imgMhs"
             android:scaleType="centerCrop"
             android:src="@mipmap/ic_launcher"
             tools:src="@drawable/girl1" />
@@ -37,7 +37,7 @@
                 android:id="@+id/txtName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nama Mahasiswa"
+                android:text="@string/namaMhs"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 tools:text="Anna" />
@@ -46,7 +46,7 @@
                 android:id="@+id/txtNrp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="NRP"
+                android:text="@string/nrp"
                 android:textSize="14sp"
                 tools:text="160423088" />
 
@@ -54,7 +54,7 @@
                 android:id="@+id/txtProdi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Program"
+                android:text="@string/prodi"
                 android:textSize="14sp"
                 tools:text="DSAI" />
 

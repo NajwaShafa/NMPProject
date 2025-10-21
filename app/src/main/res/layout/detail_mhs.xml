@@ -17,11 +17,11 @@
 
         <ImageButton
             android:id="@+id/btnBack"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:layout_margin="1dp"
             android:background="@android:color/transparent"
-            android:contentDescription="Back"
+            android:contentDescription="@string/btnBack"
             android:scaleType="centerInside"
             app:srcCompat="@drawable/ic_arrow_back" />
 
@@ -30,9 +30,9 @@
             android:layout_width="140dp"
             android:layout_height="140dp"
             android:layout_gravity="center_horizontal"
-            android:scaleType="centerCrop"
-            android:contentDescription="Foto mahasiswa"
+            android:contentDescription="@string/imgDetail"
             android:padding="4dp"
+            android:scaleType="centerCrop"
             tools:src="@drawable/girl1" />
 
         <!-- Nama -->
@@ -41,10 +41,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="Nama Mahasiswa"
-            android:textStyle="bold"
-            android:textSize="20sp"
             android:layout_marginTop="8dp"
+            android:text="@string/namaDetail"
+            android:textSize="20sp"
+            android:textStyle="bold"
             tools:text="Anna" />
 
         <!-- NRP -->
@@ -53,9 +53,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="NRP"
-            android:textSize="14sp"
             android:layout_marginTop="4dp"
+            android:text="@string/nrpDetail"
+            android:textSize="14sp"
             tools:text="160423088" />
 
         <!-- Prodi -->
@@ -64,9 +64,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="Program"
-            android:textSize="16sp"
             android:layout_marginTop="4dp"
+            android:text="@string/prodiDetail"
+            android:textSize="16sp"
             tools:text="DSAI" />
 
         <!-- Spinner  -->
@@ -114,7 +114,7 @@
                 android:layout_height="wrap_content"
                 android:minHeight="48dp"
                 android:padding="12dp"
-                android:text="DSAI" />
+                android:text="@string/rbDSAI" />
 
             <RadioButton
                 android:id="@+id/rbNCS"
@@ -122,7 +122,7 @@
                 android:layout_height="wrap_content"
                 android:minHeight="48dp"
                 android:padding="12dp"
-                android:text="NCS" />
+                android:text="@string/rbNCS" />
 
             <RadioButton
                 android:id="@+id/rbIMES"
@@ -130,7 +130,7 @@
                 android:layout_height="wrap_content"
                 android:minHeight="48dp"
                 android:padding="12dp"
-                android:text="IMES" />
+                android:text="@string/rbIMES" />
 
             <RadioButton
                 android:id="@+id/rbDMT"
@@ -138,7 +138,7 @@
                 android:layout_height="wrap_content"
                 android:minHeight="48dp"
                 android:padding="12dp"
-                android:text="DMT" />
+                android:text="@string/rbDMT" />
 
             <RadioButton
                 android:id="@+id/rbGD"
@@ -146,7 +146,7 @@
                 android:layout_height="wrap_content"
                 android:minHeight="48dp"
                 android:padding="12dp"
-                android:text="GD" />
+                android:text="@string/rbGD" />
         </RadioGroup>
 
         <!-- Request Friend button -->
