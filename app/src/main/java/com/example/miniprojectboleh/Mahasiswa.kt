@@ -1,8 +1,10 @@
-package com.example.miniprojectboleh
-
 data class Mahasiswa(
-    var nama: String,
-    var nrp: String,
-    var prodi: String,
-    var imgId: Int
+    val nama: String,
+    val nrp: String,
+    val email: String,
+    val program: String,
+    val aboutMe: String,
+    val myCourse: String,
+    val myExperience: String,
+    val photoUrl: String
 )

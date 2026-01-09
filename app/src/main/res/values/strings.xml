@@ -26,4 +26,6 @@
     <string name="rbIMES">IMES</string>
     <string name="rbDMT">DMT</string>
     <string name="rbGD">GD</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
