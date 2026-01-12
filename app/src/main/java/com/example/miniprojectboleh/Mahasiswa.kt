@@ -1,10 +1,12 @@
+package com.example.miniprojectboleh
+
 data class Mahasiswa(
-    val nama: String,
     val nrp: String,
+    val nama: String,
     val email: String,
-    val program: String,
-    val aboutMe: String,
-    val myCourse: String,
-    val myExperience: String,
-    val photoUrl: String
+    val prodi: String,
+    val about_me: String,
+    val my_course: String,
+    val my_experience: String,
+    val photo_url: String
 )
