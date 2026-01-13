@@ -1,65 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
+    android:background="?android:attr/windowBackground"
     app:cardCornerRadius="12dp"
     app:cardElevation="6dp">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="110dp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
+        android:layout_height="wrap_content"
         android:padding="10dp">
 
         <ImageView
             android:id="@+id/imgMhs"
             android:layout_width="90dp"
             android:layout_height="90dp"
-            android:layout_marginEnd="12dp"
-            android:contentDescription="@string/imgMhs"
             android:scaleType="centerCrop"
+            android:contentDescription="@string/imgMhs"
             android:src="@mipmap/ic_launcher"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             tools:src="@drawable/girl1" />
 
-        <LinearLayout
+        <!-- NAMA -->
+        <TextView
+            android:id="@+id/txtName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:text="@string/namaMhs"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="?android:attr/textColorPrimary"
+            android:maxLines="1"
+            android:ellipsize="end"
             android:layout_marginStart="12dp"
-            android:layout_weight="1"
-            android:gravity="center_vertical"
-            android:orientation="vertical">
+            android:layout_marginEnd="8dp"
+            app:layout_constraintStart_toEndOf="@id/imgMhs"
+            app:layout_constraintEnd_toStartOf="@id/btnEmail"
+            app:layout_constraintTop_toTopOf="@id/imgMhs" />
 
-            <TextView
-                android:id="@+id/txtName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/namaMhs"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                tools:text="Anna" />
+        <!-- NRP -->
+        <TextView
+            android:id="@+id/txtNrp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/nrp"
+            android:textColor="?android:attr/textColorSecondary"
+            android:maxLines="1"
+            android:ellipsize="end"
+            app:layout_constraintStart_toStartOf="@id/txtName"
+            app:layout_constraintEnd_toEndOf="@id/txtName"
+            app:layout_constraintTop_toBottomOf="@id/txtName" />
 
-            <TextView
-                android:id="@+id/txtNrp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/nrp"
-                android:textSize="14sp"
-                tools:text="160423088" />
+        <!-- PRODI -->
+        <TextView
+            android:id="@+id/txtProdi"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/prodi"
+            android:textColor="?android:attr/textColorSecondary"
+            android:maxLines="1"
+            android:ellipsize="end"
+            app:layout_constraintStart_toStartOf="@id/txtName"
+            app:layout_constraintEnd_toEndOf="@id/txtName"
+            app:layout_constraintTop_toBottomOf="@id/txtNrp" />
 
-            <TextView
-                android:id="@+id/txtProdi"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/prodi"
-                android:textSize="14sp"
-                tools:text="DSAI" />
+        <ImageButton
+            android:id="@+id/btnEmail"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_email"
+            android:contentDescription="@string/send_email"
+            app:tint="?android:attr/textColorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
 
-        </LinearLayout>
-
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>

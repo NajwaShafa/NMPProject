@@ -16,6 +16,10 @@
     <string name="imgMhs">Image Mahasiswa</string>
 
     <string name="btnBack">Back to the previous page</string>
+    <string name="send_email">Send Email</string>
+    <string name="night_mode">Night mode on</string>
+    <string name="reset_my_friends">Reset My Friends</string>
+    <string name="reset">Reset</string>
     <string name="imgDetail">Image Detail</string>
     <string name="namaDetail">Nama Detail</string>
     <string name="nrpDetail">NRP Detail</string>

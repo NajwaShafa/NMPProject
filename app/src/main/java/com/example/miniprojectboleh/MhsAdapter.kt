@@ -8,6 +8,7 @@ import com.example.miniprojectboleh.DetailMhs
 import com.example.miniprojectboleh.Mahasiswa
 import com.example.miniprojectboleh.databinding.ProfileMhsBinding
 import com.squareup.picasso.Picasso
+import android.util.Log
 
 class MhsAdapter(private val data: ArrayList<Mahasiswa>) :
     RecyclerView.Adapter<MhsAdapter.MhsViewHolder>() {
@@ -40,5 +41,9 @@ class MhsAdapter(private val data: ArrayList<Mahasiswa>) :
     override fun onBindViewHolder(holder: MhsViewHolder, position: Int) {
         holder.bind(data[position])
     }
-    override fun getItemCount(): Int = data.size
+    override fun getItemCount(): Int {
+        Log.d("ADAPTER", "itemCount = ${data.size}")
+        return data.size
+    }
+
 }

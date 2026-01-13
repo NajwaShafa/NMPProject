@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
-import com.example.miniprojectboleh.adapter.MhsAdapter
+import com.example.miniprojectboleh.adapter.FriendAdapter
 import com.example.miniprojectboleh.databinding.FragmentFriendsBinding
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
@@ -20,7 +20,7 @@ class FriendsFragment : Fragment() {
     private var _binding: FragmentFriendsBinding? = null
     private val binding get() = _binding!!
     private var friends: ArrayList<Mahasiswa> = ArrayList()
-    private lateinit var adapter: MhsAdapter
+    private lateinit var adapter: FriendAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,7 +35,7 @@ class FriendsFragment : Fragment() {
 
         // Konfigurasi RecyclerView
         binding.rvFriends.layoutManager = LinearLayoutManager(context)
-        adapter = MhsAdapter(friends)
+        adapter = FriendAdapter(requireContext(),friends)
         binding.rvFriends.adapter = adapter
 
         // Ambil data teman dari database

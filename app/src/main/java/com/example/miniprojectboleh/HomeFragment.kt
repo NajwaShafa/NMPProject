@@ -54,6 +54,7 @@ class HomeFragment : Fragment() {
                 // Mengubah JSON Array menjadi ArrayList<Mahasiswa> menggunakan Gson
                 val sType = object : TypeToken<ArrayList<Mahasiswa>>() {}.type
                 val result = Gson().fromJson<ArrayList<Mahasiswa>>(response, sType)
+                Log.d("HOME_DATA", "Jumlah data = ${result.size}")
 
                 students.clear()
                 students.addAll(result)

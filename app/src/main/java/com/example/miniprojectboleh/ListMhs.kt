@@ -3,7 +3,8 @@ package com.example.miniprojectboleh
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
-import com.example.miniprojectboleh.databinding.ActivityListMhsBinding // Sesuaikan nama binding layout Anda
+import com.example.miniprojectboleh.databinding.ActivityListMhsBinding
+import android.util.Log
 
 class ListMhs : AppCompatActivity() {
     private lateinit var binding: ActivityListMhsBinding
@@ -13,18 +14,26 @@ class ListMhs : AppCompatActivity() {
         binding = ActivityListMhsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //Setup ViewPager2 dengan Adapter
+        Log.d("LIST_MHS", "Activity created")
+
         val adapter = ViewPagerAdapter(this)
         binding.viewPager.adapter = adapter
+        binding.viewPager.offscreenPageLimit = 1
+        binding.viewPager.setCurrentItem(0, false)
 
-        // Sinkronisasi ViewPager dengan Bottom Navigation
-        binding.viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
-            override fun onPageSelected(position: Int) {
-                binding.bottomNav.menu.getItem(position).isChecked = true
+        binding.viewPager.post {
+            Log.d("LIST_MHS", "Force set currentItem")
+            binding.viewPager.currentItem = 0
+        }
+
+        binding.viewPager.registerOnPageChangeCallback(
+            object : ViewPager2.OnPageChangeCallback() {
+                override fun onPageSelected(position: Int) {
+                    binding.bottomNav.menu.getItem(position).isChecked = true
+                }
             }
-        })
+        )
 
-        //Klik Bottom Menu untuk mengubah halaman ViewPager
         binding.bottomNav.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.itemHome -> binding.viewPager.currentItem = 0
