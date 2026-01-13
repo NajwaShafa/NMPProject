@@ -9,6 +9,7 @@ import com.example.miniprojectboleh.Mahasiswa
 import com.example.miniprojectboleh.databinding.ProfileMhsBinding
 import com.squareup.picasso.Picasso
 import android.util.Log
+import android.view.View
 
 class MhsAdapter(private val data: ArrayList<Mahasiswa>) :
     RecyclerView.Adapter<MhsAdapter.MhsViewHolder>() {
@@ -17,7 +18,7 @@ class MhsAdapter(private val data: ArrayList<Mahasiswa>) :
         fun bind(mhs: Mahasiswa) {
             binding.txtName.text = mhs.nama
             binding.txtNrp.text = mhs.nrp
-            binding.txtProdi.text = mhs.prodi
+            binding.txtProdi.text = mhs.program
 
             //Load foto menggunakan nama variabel yang sinkron dengan database
             if (mhs.photo_url.isNotEmpty()) {
@@ -25,10 +26,13 @@ class MhsAdapter(private val data: ArrayList<Mahasiswa>) :
                     .load(mhs.photo_url)
                     .into(binding.imgMhs)
             }
+            binding.btnEmail.visibility = View.GONE
+
             binding.root.setOnClickListener {
                 val ctx = binding.root.context
                 val intent = Intent(ctx, DetailMhs::class.java)
                 intent.putExtra("NRP", mhs.nrp)
+                intent.putExtra("PHOTO_URL", mhs.photo_url) // ⬅️ TAMBAH INI
                 ctx.startActivity(intent)
             }
         }

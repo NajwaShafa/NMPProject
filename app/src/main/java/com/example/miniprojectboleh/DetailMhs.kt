@@ -43,7 +43,7 @@ class DetailMhs : AppCompatActivity() {
 
     private fun ambilDetailMahasiswa() {
         val antrianRequest = Volley.newRequestQueue(this)
-        val alamatUrl = "http://10.0.2.2/project_uas/get_student_id.php?nrp=$nrpMahasiswa"
+        val alamatUrl = "http://10.0.2.2/NMPProject/get_student_id.php?nrp=$nrpMahasiswa"
 
         val stringRequest = StringRequest(Request.Method.GET, alamatUrl,
             { respon ->
@@ -70,17 +70,18 @@ class DetailMhs : AppCompatActivity() {
     private fun tampilkanDataProfil(mhs: Mahasiswa) {
         binding.txtNamaDetail.text = mhs.nama
         binding.txtNrpDetail.text = mhs.nrp
-        binding.txtProdiDetail.text = mhs.prodi
+        binding.txtProdiDetail.text = mhs.program
 
         // Muat Foto dengan Picasso
         Picasso.get().load(mhs.photo_url).into(binding.imgDetail)
 
         // Cek RadioButton prodi
-        when (mhs.prodi) {
+        when (mhs.program) {
             "DSAI" -> binding.rbDSAI.isChecked = true
             "GD" -> binding.rbGD.isChecked = true
             "DMT" -> binding.rbDMT.isChecked = true
             "IMES" -> binding.rbIMES.isChecked = true
+            "NCS" -> binding.rbNCS.isChecked = true
         }
 
         // Atur Spinner Informasi
@@ -94,7 +95,7 @@ class DetailMhs : AppCompatActivity() {
                 binding.textSpinner.text = when (posisi) {
                     1 -> mhs.about_me
                     2 -> mhs.my_course
-                    3 -> mhs.my_experience
+                    3 -> mhs.my_experiences
                     else -> ""
                 }
             }
@@ -104,7 +105,7 @@ class DetailMhs : AppCompatActivity() {
 
     private fun tambahTemanBaru() {
         val antrian = Volley.newRequestQueue(this)
-        val alamatUrl = "http://10.0.2.2/project_uas/insert_friend.php"
+        val alamatUrl = "http://10.0.2.2/NMPProject/insert_friend.php"
 
         val stringRequest = object : StringRequest(Method.POST, alamatUrl,
             { respon ->

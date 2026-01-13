@@ -49,7 +49,7 @@ class SettingsFragment : Fragment() {
     }
 
     private fun resetFriends() {
-        val url = "http://10.0.2.2/project_uas/reset_friends.php"
+        val url = "http://10.0.2.2/NMPProject/reset_friends.php"
         val queue = Volley.newRequestQueue(requireContext())
 
         val request = StringRequest(

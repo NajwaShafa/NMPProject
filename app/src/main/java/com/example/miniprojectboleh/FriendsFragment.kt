@@ -45,7 +45,7 @@ class FriendsFragment : Fragment() {
     // Fungsi untuk mengambil data menggunakan Volley
     fun fetchFriends() {
         val q = Volley.newRequestQueue(context)
-        val url = "http://10.0.2.2/project_uas/get_friend.php"
+        val url = "http://10.0.2.2/NMPProject/get_friend.php"
 
         val stringRequest = StringRequest(Request.Method.GET, url,
             { response ->
@@ -60,6 +60,10 @@ class FriendsFragment : Fragment() {
             { error -> Log.e("api_error", error.message.toString()) }
         )
         q.add(stringRequest)
+    }
+    override fun onResume() {
+        super.onResume()
+        fetchFriends()
     }
     override fun onDestroyView() {
         super.onDestroyView()

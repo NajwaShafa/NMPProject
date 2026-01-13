@@ -32,7 +32,7 @@ class FriendAdapter(
 
         holder.binding.txtName.text = mhs.nama
         holder.binding.txtNrp.text = mhs.nrp
-        holder.binding.txtProdi.text = mhs.prodi
+        holder.binding.txtProdi.text = mhs.program
 
         if (mhs.photo_url.isNotEmpty()) {
             Picasso.get()
@@ -42,10 +42,14 @@ class FriendAdapter(
 
         holder.binding.btnEmail.setOnClickListener {
             val intent = Intent(Intent.ACTION_SENDTO).apply {
-                data = Uri.parse("mailto:${mhs.email}")
+                data = Uri.parse("mailto:${mhs.email}") // WAJIB mailto
                 putExtra(Intent.EXTRA_SUBJECT, "Hello ${mhs.nama}")
+                putExtra(Intent.EXTRA_TEXT, "Halo ${mhs.nama}, apa kabar?")
             }
-            context.startActivity(intent)
+
+            context.startActivity(
+                Intent.createChooser(intent, "Kirim email dengan")
+            )
         }
     }
 

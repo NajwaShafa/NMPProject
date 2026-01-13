@@ -47,7 +47,7 @@ class HomeFragment : Fragment() {
 
     private fun fetchStudents() {
         val q = Volley.newRequestQueue(context)
-        val url = "http://10.0.2.2/project_uas/get_all_student.php"
+        val url = "http://10.0.2.2/NMPProject/get_all_student.php"
 
         val stringRequest = StringRequest(Request.Method.GET, url,
             { response ->
